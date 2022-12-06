@@ -1,0 +1,33 @@
+name: 🐈 Build & push Image to DGO
+
+on:
+  push:
+    tags: ["v*.*.*"]
+
+jobs:
+  build:
+    name: 🐈 Build Image
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository 🐈
+        uses: actions/checkout@v2
+
+      - name: Get tag 🐈
+        id: tag
+        uses: dawidd6/action-get-tag@v1
+
+      - name: Log into registry 🐈
+        uses: docker/login-action@v1
+        with:
+          registry: ${{ secrets.DGO_DOCKER_REGISTRY }}
+          username: ${{ secrets.DGO_API_SECRET }}
+          password: ${{ secrets.DGO_API_SECRET }}
+
+      - name: Build & Push 🐈
+        uses: docker/build-push-action@v2
+        with:
+          push: true
+          build-args: |
+            version=${{ steps.tag.outputs.tag }}
+          tags: ${{ secrets.DGO_DOCKER_REGISTRY }}/${{ secrets.IMAGE_NAME }}:${{ steps.tag.outputs.tag }}
