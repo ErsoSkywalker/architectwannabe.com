@@ -11,7 +11,7 @@ export default function Home() {
 
       <main className={styles.main}>
         <h1 className={styles.title}>
-          This is under construction! Come back later
+          This is under construction! Come back later uwu
         </h1>
       </main>
     </div>
