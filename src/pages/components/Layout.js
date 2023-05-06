@@ -9,7 +9,7 @@ const Layout = ({ children }) => {
       </Head>
       <div className="bg-white text-black flex flex-row relative">
         <Sidebar />
-        <div className="p-5 w-full h-screen">{children}</div>
+        <div className="md:px-20 py-5 w-full h-screen">{children}</div>
       </div>
     </>
   );

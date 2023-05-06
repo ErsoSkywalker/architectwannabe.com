@@ -14,7 +14,7 @@ const Sidebar = () => {
       <div
         className={`${
           barOpen ? "w-screen md:w-72" : "w-0 md:w-16 md:scale-100 origin-left"
-        } h-screen duration-[500ms] delay-[21ms] bg-orange-400 fixed sm:visible`}
+        } h-screen duration-[500ms] delay-[21ms] bg-orange-400 fixed sm:visible shadow-lg`}
       >
         <div
           className={`${
